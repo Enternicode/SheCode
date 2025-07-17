@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChildHoOd Toys</title>
+    <style>
+        /* Basic font, color, and margin/padding reset for html and body */
+html body {
+  font-family: 'Comic Sans MS', 'Baloo', cursive;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* For Firefox - hides scrollbar */
+body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+
+body::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar width */
+  background: transparent; /* Make scrollbar background transparent */
+}
+
+/* Fixed header at top */
+header {
+  width: 100%;
+  height: 130px;
+  background-color: rgba(223, 3, 3, 0.616);
+  padding: 1rem 2rem; 
+  margin: 0;
+  color: antiquewhite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  z-index: 1000; 
+}
+
+header h1, header p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: 0;
+  padding: 0;
+}
+header h1{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+header p {
+  font-size: 1rem;
+  padding-top: 0.3rem;
+}
+
+
+/* Background image container with centered content */
+.bcground-img {
+  width: 100%;
+  height: 1400px;
+  background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/167/038/original/Amigurumi_Crochet_Pattern_Lili_Doll_Digital_Download_Crochet_Doll_Handmade_Toy_Doll_Gift_Keepsake_Hobby_Crocheter_-_Etsy.jpeg?1748703884") no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Search section container with center alignment */
+.search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 200px;
+  padding: 90px 10px 20px;
+}
+
+/* Search button style with rounded edges */
+.searchButton {
+  background-color: #fefefe;
+  color: #333;
+  height: 40px;
+  width: 10%;
+  border-radius: 25px;
+  border: 2px solid white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 2px;
+  padding: 4px;
+}
+
+/* Input field style with matching font and rounded edges */
+.input {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 14px;
+  width: 65%;
+  height: 40px;
+  border-radius: 25px;
+  border: 2px solid white;
+  color: #333;
+  padding: 4px 16px;
+  margin: 2px;
+}
+
+/* Container for sections using flexbox to space and wrap */
+.section-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 70px;
+}
+
+/* Each section box with background and rounded corners */
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 420px;
+  width: 430px;
+  padding: 10px;
+  margin: 20px;
+  background-color: rgba(245, 242, 242, 0.884);
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+/* Section title style */
+.section h2 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'Gill Sans', sans-serif;
+  color: #310101;
+  padding: 12px;
+  margin: 0;
+}
+
+/* Subtitle style */
+.subTitle {
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Image container inside sections */
+.container-img {
+  width: 370px;
+  height: 300px;
+  border-radius: 23px;
+}
+
+/* Text inside each section */
+.section .text {
+  font-size: 14px;
+  font-family:'Times New Roman', Times, serif;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding: 0 0 6px 6px;
+}
+
+/* Links inside text without underline */
+.text a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Footer styling at the bottom */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding-top: 70px;
+  margin: 0;
+  text-align: center;
+  color: #000;
+  background-color: rgb(235, 235, 211);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Message container for animation, positioned absolutely */
+.messages {
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  margin: 0;
+  position: absolute; /* For animation effect */
+  left: 0;
+  bottom: -800px;
+}
+
+/* Images inside messages, flipped horizontally */
+.messages img {
+  background: transparent !important;
+  border: none;
+  display: block;
+  width: 200px;
+  height: 180px;
+  margin-right: -120px;
+  transform: scaleX(-1); /* Flip image horizontally */
+}
+
+/* Message text bubble style */
+.messages p {
+  background-color: #ecf7ae;
+  font-size: 16px;
+  padding: 36px 40px 30px 40px;
+  color: #251414;
+  font-weight: bold;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid #ecf7ae;
+  box-shadow: 4px 12px 8px rgba(0,0,0,0.5);
+}
+
+/* Margin for SVG inside messages */
+svg {
+  margin-left: -12px;
+}
+
+/* Links inside footer */
+.footer a {
+  color: #773131;
+  text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>What makes childhood feel even more unreal?</h1>
+        <p>Toys weren’t just things to play with — they were creatures of imagination.</p>
+    </div>
+    </header>
+    
+    <div class="container">
+     <div class="bcground-img">
+      <div class="search-button">
+         <!--Search button triggers image search -->
+          <input type="button" class="searchButton" onclick="searchToy()" value="🔍 Search">
+          <!--Input for entering Toy search keywords -->
+          <input class="input" id="searchInput" type="text" placeholder="you search your favorite toys">
+        </div>
+        <div id="result"></div>
+
+        <!-----------------------------SECTIONS----------------------------->
+        <div class="section-container">
+          <!-- Section about Timeless childhood toys -->
+        <div class="section">
+            <h2>What made childhood timeless?</h2>
+            <p class="subTitle">🧸 From teddy hugs to magical friends.</p>
+            <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/036/original/03f8e037-441a-4e50-8399-ad37b6625f91.jpeg?1749809801" alt="" class="container-img">
+            <p class="text">From bedtime whispers to big adventures, teddy bears have always been there. 
+              See more <a href="https://unsplash.com/s/photos/teddy-bears">🧸ُTeddy Bear</a></p>
+        </div>
+
+        <!-- Section about magical toys -->
+        <div class="section">
+            <h2> What made childhood iconic?</h2>
+            <p class="subTitle">🌟 Magic wasn’t in the toy, but in our stories</p>
+            <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/037/original/cd565dd0-d682-4983-9ecc-1818bb4bcb74.jpeg?1749809939" alt="" class="container-img">
+            <p class="text">Childhood was a tiny universe where every toy had a story, and every day was an adventure.</p>
+        </div>
+
+        <!--Section about social toys and creativity -->
+        <div class="section">
+            <h2>What made childhood feel magical?</h2>
+            <p class="subTitle">✨ Whispering dolls and hidden adventures</p>
+            <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/039/original/Playtime__barbiebyketo.jpeg?1749810746" alt="" class="container-img">
+            <p class="text">Toys like Polly Pocket opened tiny worlds of wonder in our hands—magical doors to creativity.  
+Explore more pocket-sized adventures at the official site: <a href="https://thepollypocket.com/">Polly Pocket</a>.</p>
+        </div>
+         <div class="section">
+            <h2>What made childhood feel social?</h2>
+            <p class="subTitle">🌈 Tiny hands, big imaginations</p>
+            <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/038/original/Small_Boy_Playing_with_Toys_Stock_Illustration_-_Illustration_of_baby__lego__347858979.jpeg?1749810389" alt="" class="container-img">
+            <p class="text">From LEGO bricks to magnetic tiles, these toys sparked creativity and endless possibilities.
+               Explore free building ideas and inspiration at <a href="https://www.instructables.com/living/kids/projects/">Instructables - Kids' Building Projects</a>.</p>
+        </div>
+
+        <div class="messages">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/168/053/original/kiki-removebg-.png?1749819350" class="character" alt="Kiki Icon">
+          <!-- Descorative SVG arrows -->
+          <svg class="svg" width="200" height="200">
+            <line x1="2200" y1="-966" x2="100" y2="80" stroke="black" stroke-width="2"/>
+            <line x1="100" y1="80" x2="220px" y2="152" stroke="black" stroke-width="2"/></svg>
+             <p>Always take care of your inner child and enjoy life to the fullest.</p>
+        </div>
+       
+      </div>
+    </div>
+    <div class="footer">
+        <p><b>this page create by <a href="https://www.shecodes.io/graduates/171093-marwa-noori">Marwa Noori<b></b></a></p>
+        <p><b>this code is open source if you like you can see it in our <a href="">GitHub</a> accoutn</b></p>
+      </div>
+    </div>
+</body>
+<script>
+  //Change header background color on scroll
+  window.addEventListener("scroll", function() {
+    const header = document.querySelector("header");
+    if (window.scrollY > 100) {
+      header.style.background = "rgb(223, 3, 3)";
+    } else {
+      header.style.background = "rgb(223, 3, 3, 0.616)";
+    }
+  });
+
+  //Search function opens a new tab with image search resualts for the toy
+ function searchToy() {
+    let query = document.getElementById("searchInput").value;
+    if (query) {
+      window.open(`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`, '_blank');
+    }
+  }
+
+
+
+// _____________ Animation for mving message box from right to left repeatedly__________
+
+
+const messageBox = document.querySelector('.messages');
+const image = messageBox.querySelector('.character');
+const text = messageBox.querySelector('.svg');
+const screenWidth = window.innerWidth;
+
+function moveMessages() {
+  // Reset position off-screen right without transition
+  messageBox.style.transition = 'none';
+  messageBox.style.transform = `translateX(${screenWidth}px)`;
+  messageBox.style.opacity = '0';
+  void messageBox.offsetWidth; // Force reflow to apply styles immediately
+
+  // Animate moving left with fade
+  messageBox.style.transition = 'transform 20s linear, opacity 1s';
+  messageBox.style.opacity = '1';
+  messageBox.style.transform = `translateX(-${screenWidth}px)`;
+
+  // Fade out near end of animation
+  setTimeout(() => {
+    messageBox.style.opacity = '0';
+  }, 13000); // 10s match transition duration
+}
+
+// Run the animation first time
+moveMessages();
+
+// Repeat every 25 seconds to avoid overlap
+setInterval(moveMessages, 25000);
+
+
+
+</script>
+</html>
